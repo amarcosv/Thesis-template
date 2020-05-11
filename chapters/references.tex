@@ -1,0 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%% references.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Springer template uses natbib, we modify it to use biblatex    %
+% since we needed biber preprocessing to solve the issue with months %
+% in citations. 
+% We had to do some tricks to actually make it work with the right   %
+% format for headers and also in the table of contents.              %
+
+
+\chapter*{References}       % Looks better with chapter style title 
+\addcontentsline{toc}{chapter}{References} % Append section to ToC
+\markboth{References}{References}   % Force the right header
+\printbibliography[heading=none]    % Print bibliography

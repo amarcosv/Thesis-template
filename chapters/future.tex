@@ -1,0 +1,23 @@
+\chapter*{Future work}
+\addcontentsline{toc}{chapter}{Future work}
+\markboth{Future work}{Future work} 
+
+This thesis has presented several approaches to tackle light propagation modeling and the assessment of the performance of light microscopes in low scattering tissue. During the development of the computational tools, many of the experiments motivated new improvements and functionalities. Some of the ideas that came out during the process could not be implemented but we consider of importance to include them in this section.
+
+The data obtained in chapter \ref{chap:flux} could be combined with a classic intensity based \gls{mc} code to derive a better estimation of the angular distribution of the specific intensity in the regions where propagation of light is not well characterized. The proposed model could be validated against experimental measurements in order to refine it and reach a better weight function for the two components of the intensity. 
+
+In addition, the code could be also modified to estimate the component of the flux in the radial direction in order to have a better understanding of the spatial changes of the net flux direction in the ballistic to diffusion transition.
+
+The work from this chapter could also have continuity if the simulations of the pencil source were used to estimate the transfer function of scattering media. Since this input is equivalent to a unit impulse~\cite{Ripoll1999}, the results could accurately characterize the loss of resolution of images when imaging in low scattering media. This data can be used to develop a method to revert the blurriness caused by scattering in some microscopy modalities. Besides, the high flexibility of choice of the radial resolution of the simulations would allow a very accurate sampling of the frequency space of the medium. 
+
+This idea is directly connected to the results from chapter \ref{chap:mcspim}, since the \gls{mclsfm} simulator could be an excellent tool to validate the proposed deconvolution method and to evaluate the recovery of the resolution at deep z planes of scanning. In fact, this idea has been protected in a patent that is included in the summary of the published works at the beginning of this document.  
+ 
+Despite \gls{mclsfm} simulator demonstrated to be an extremely useful tool, it presents two limitations that we consider that would be very interesting to investigate. The \gls{mc} approach lacks of capability to recreate coherent interactions of light, thus the simulator misses the mimicking the wave nature of light. We believe that further investigations could find a method to include this important physical phenomenon in the tool.
+
+The second limitation was found during the simulation of \gls{opt} acquisitions. The large amount of projections that are needed require from computation times that were significantly longer than in \gls{lsfm}. We propose to embed this application into a docker container to exploit the computational power of cloud services, allowing to run multi GPU executions.
+
+Another important task that could not be completed during this thesis is the experimental validation of the SPOT method, which should be an straight forward process in the right \gls{ls} microscope.
+
+Finally, since the experimental setup built in the last chapter was conceived as a proof of concept, we believe it has a large margin of improvement. In the scanning approach, the multiexposure mode could be combined with further postprocessing to discard frames with light saturating the sensor or recreate an acquisition with rolling shutter. A more advanced approach would be the use of a LED and a camera placed in the perpendicular direction to perform a segmentation of the shape of the sample to have an adaptive scanning algorithm.
+
+Finally, this setup could be used for mesoscopic \gls{lsfm} acquisitions if the camera was rotated 90º respect to the current detection axis.

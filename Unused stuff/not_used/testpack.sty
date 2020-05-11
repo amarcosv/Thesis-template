@@ -1,0 +1,6 @@
+\def\mystretch{1.5}		% Double spacing hack
+\DeclareOption{doublespace}{}	% This is default
+				% So we do not read this style twice
+\DeclareOption{singlespace}{		% If he explicitly wants single spacing
+    \typeout{Single spaced}
+    \def\mystretch{1}}	

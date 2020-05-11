@@ -1,0 +1,47 @@
+\chapter*{Motivation and Objectives}
+\addcontentsline{toc}{chapter}{Motivation and Objectives}
+\markboth{Motivation and objectives}{Motivation and objectives} % Force the right header
+
+Optical instrumentation started its journey when ancient civilizations invented the first rudimentary lenses and derived the geometrical optics laws. Centuries later, the sophistication of the fabrication methods allowed to build more complex apparatus that opened the door to observe a whole new world from the smallest molecules to the remotest galaxies. However, it was just a few decades ago that the invention of technologies to store images revolutionized the way those observations contribute to the progress of science. Light microscopy nowadays has turned inconceivable without all these instruments but, despite the giant achievements of the last years, the physics of light still limit its capability to image in thick biological samples.
+
+Dealing with light scattering is one the main challenges in optical imaging and microscopy. This phenomenon disperses the light penetrating into tissues, randomizing its direction of propagation and limiting the depth at which a lens is still able to focus a coherent source to a few hundreds of microns for visible light~\cite{Ntziachristos2010}. Scattering affects to every technique, no matter if it measures fluorescence, transmission or reflection but its impact is stronger on techniques studying living specimens or large pieces of tissue.
+
+The pursuit of new strategies to mitigate the effects of scattering led to the development of some of the most popular optical imaging modalities nowadays. For instance, Confocal Microscopy~\cite{Pawley2006Confocal} rejects the scattered and out of focus light by placing a pinhole in the detection line. \acrfull{opt}~\cite{Sharpe2002}, despite it is inspired in x-ray computed tomography, can obtain three dimensional information from large sized specimens with isotropic resolution if an adequate choice of optics is made. Recently, Light Sheet Fluorescence Microscopy~\cite{Huisken2004} demonstrated that the excitation of thin sections of the sample reduces the background intensity caused by scattering and allows to achieve optical sectioning without any image postprocessing. These techniques have pushed the resolution close to the diffraction limit and have increased significantly the depth of penetration compared to classical epi-fluorescence. 
+
+Despite optical microscopy has traditionally imaged using visible light, it is well known since more than two decades ago that \acrfull{nir} light allows to penetrate deeper into biological tissues~\cite{Weissleder2001,Ntziachristos2002}, presenting significantly lower scattering than other spectral windows. Initially, the use \gls{nir} light in optical microscopy was restricted to the \acrfull{nir1} window since there were no detection technologies operating further than 1000 nm. However, in the last few years new technologies sensitive to \gls{nir2} light have become available at the market, enabling the use of the wavelengths with the most reduced scattering of the \gls{nir} spectrum. 
+
+The propagation of light in highly scattering media is very well characterized by diffusion theory~\cite{Ishimaru1978, Lorenzo2012} whereas transparent media is governed by ballistic light and thus most imaging techniques can neglect the effects of scattering. Measuring thick samples with light from the \gls{nir2} window occurs in an intermediate domain, where scattering is already noticeable but the diffusion model is still not accurate to model light propagation~\cite{Yoo1990}. In this transition region, light propagates in an undetermined way and thus new models need to be developed.
+
+This thesis investigates light propagation in the ballistic to diffusion regime with the goal of assessing the performance of tomographic optical imaging techniques operating in the \gls{nir2} window or studying semitransparent tissues. In this context, the objectives of the thesis are:
+
+\begin{enumerate}
+
+{\setlength\itemindent{25pt} \item To review the propagation theory for light in diffusive and non diffusive media in order to identify the key factors that cause the failure of propagation models in the ballistic to diffusion regime.
+}
+{\setlength\itemindent{25pt} \item To review the state of the art of tomographic optical imaging techniques to analyze their current limitations and their strategies to overcome the negative effects of scattering on the images
+}
+{\setlength\itemindent{25pt} \item The development of a computational simulation framework to study the propagation of light in low scattering media which results can be used to validate current light propagation models.
+}
+{\setlength\itemindent{25pt} \item The development of a simulator to study the actual effects of imaging in low scattering media on the images of optical tomographic modalities.
+}
+{\setlength\itemindent{25pt} \item The development of an experimental setup to measure light transmission in the \gls{nir2} window capable of obtaining reconstructions of the absorption distribution in mesoscopic samples.
+}
+\end{enumerate}
+
+\newpage
+\section*{Outline of the Document}
+\addcontentsline{toc}{section}{Outline of the document}
+
+The first part of the thesis consists of a comprehensive review of the theoretical background and the state of the art of optical tomographic imaging in low scattering media, serving as the starting point for the research work that will be presented in the rest of the thesis. Then we propose a set of computational tools to investigate the propagation of light from infinite media to microscopy applications. The last section presents the first results of an experimental setup that aims to validate some of the results from previous sections.
+
+Chapter~\ref{chap:theory} describes the optical properties of biological tissues along the spectral windows for imaging and the physical models of light propagation in scattering media. Moreover, this section details the consequences of imaging in diffusive media in terms of depth of penetration and resolution loss and discusses the advantages of the use of \gls{nir} light.
+
+Chapter~\ref{chap:review} reviews the most recent advances in \gls{opt} and \gls{lsfm}. These two techniques have quickly evolved during the last two decades and have a vast variety of variants and acquisition methods. 
+
+Chapter~\ref{chap:flux} proposes a new simulation approach to model the light measured by a detector in scattering media. The software is validated with a well defined diffusive case and simulations are performed for the optical properties that can be found in tissues in the \gls{nir2} window.
+
+Chapter~\ref{chap:mcspim} covers the development of a simulation environment for \gls{lsfm}, presenting its potential as a tool to assess the performance of this technique in the \gls{nir}.
+
+In chapter~\ref{chap:opt_spim}, the simulation tool of the previous chapter is extended to other imaging modalities, demonstrating that this tool can be used to develop and validate new imaging methods.
+
+Chapter~\ref{chap:opt_nir2} presents the experimental results from the development of a transmission \gls{opt} system for the \gls{nir2} window, describing the new challeneges that the optical properties of tissues set to the classical illumination approach.

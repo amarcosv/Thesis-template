@@ -1,0 +1,8 @@
+En la carpeta Plantilla_TFM_2017 encontrar�s:
+
+� Archivo plantilla_tfm_2017.tex: contiene la configuraci�n del documento. Se debe trabajar en el TFM sobre este fichero. 
+Aunque se puede ver y editar en cualquier editor de textos, para compilarlo y producir un documento final es necesario tener instalado latex en el ordenador y utilizar un programa como Texstudio o Texmaker (en Windows). Cuando se compila este archivo se generan una serie de  archivos auxiliares que se guardan en la misma carpeta. En este caso es una plantilla (el archivo no est� compilado) y, por tanto, no est�n los archivos auxiliares.
+� Archivo plantilla_tfm_2017.xmpdata: si se desea, en este archivo se pueden a�adir metadatos para que aparezcan en el PDF final del trabajo.
+� Carpeta bibliograf�a: contiene un archivo bibliograf�a.bib en el que se puede a�adir la bibliograf�a en formato bibtex.
+� Carpeta im�genes: contiene los archivos de imagen del logotipo de la universidad y de creative commons, requeridos para la portada del documento final.
+� Carpeta _EJEMPLO_TFM_2017: contiene un documento final de ejemplo. Aqu� se pueden ver los archivos .tex, la bibliograf�a y xmpdata con contenido simulado. El resto de archivos son los creados al compilar el .tex, entre los que se encuentra un PDF que nos permite ver c�mo se visualiza el ejemplo.

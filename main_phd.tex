@@ -1,0 +1,241 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for the chapters of your "monograph"
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+%https://www.mathstat.dal.ca/~selinger/pdfa/
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,graybox,envcountchap ]{th_template}
+
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+\usepackage[greek.polutonikogreek,english,silent]{babel}
+%\usepackage[no-math, silent]{fontspec}
+\usepackage[silent]{fontspec}
+
+
+%\newfontfamily\unicodefont{Tex Gyre TermesX}
+%\setmainfont{Tex Gyre TermesX}
+%\setmainfont{TeX Gyre Termes}
+%\fontencoding{OT1}\fontfamily{ptm}\selectfont
+\babelfont[english]{rm}[Language=Default]{Tex Gyre TermesX}
+%\babelfont[english]{rm}[Language=Default,Script=Latin]{TeXGyreTermesX-Regular.otf}
+
+%\babelfont[english]{rm}{Tex Gyre Schola}
+%\babelfont[english]{rm}{Tex Gyre TermesX}
+%\babelfont{rm}{lmroman10-regular.otf}
+%\babelfont{rm}{Times New Roman}
+%\babelfont[greek.polutonikogreek]{rm}{Linux Libertine O}
+\babelfont[greek.polutonikogreek]{rm}{CMU Serif}
+%\usepackage{empheq}
+
+%\usepackage{unicode-math}
+%\setmathrmfont{TeX Gyre Termes Math}%[version=Termes]
+% choose options for [] as required from the list
+% in the Reference Guide
+% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{type1cm}        % activate if the above 3 fonts are
+                            % not available on your system
+%
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{ifpdf}           % shoose graphic format
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+% Using natbib we need to fix manually the months in bib file (they are written numerically)
+%\usepackage{natbib}		     % used for the spbasic bibliography style
+%\setcitestyle{numbers,open={[},close={]}}
+
+% Use biber to fix month format from mendeley files
+% Use customized ieee format without urls (changes commented in ieee.bbx)
+% IEEE formating is suggested by the university
+\usepackage[backend=biber,style=ieee, citestyle=numeric-comp]{biblatex}
+\addbibresource{Thesis_refs.bib}
+
+%\usepackage{newtxtext}       %
+\usepackage{mathtools}
+\usepackage{newtxmath}       % selects Times Roman as basic font
+\usepackage{soul}            % Highlight pending changes
+\usepackage{float}           % Handle figure positioning
+\usepackage{placeins}        % Avoid a figure from being displayed in a different section
+
+\usepackage[left]{lineno}
+%\linenumbers
+
+\usepackage[final]{pdfpages} % To insert the UC3M cover
+
+\usepackage[symbols,acronym,nonumberlist,toc]{glossaries-extra} % To use acronyms
+\setabbreviationstyle[acronym]{long-short} % Define acronym on first use, then always use short version
+%\preto\chapter{\glsresetall} % Define acronyms at every chapter
+\usepackage{glossary-superragged} %To sort acronyms alphabetically
+\usepackage{glossary-longragged}
+
+\usepackage[a-1b]{pdfx}    %To create the right output pdf file
+\usepackage[]{hyperref}    %To create the right output pdf file
+\usepackage{verbatim}
+%% WARNING! Output.xmpdata must be included in the folder
+
+
+\usepackage{siunitx}    % to use SI units
+\sisetup{detect-all}
+%\sisetup{mode = text}
+%\sisetup{math-rm = \symup}
+\sisetup{per-mode = symbol}
+%\newcommand*\unit[1]{& \left[\text{#1}\right]}
+\newcommand*\unit[1]{& \left[#1\right]}
+ \sisetup{math-micro=\text{µ},text-micro=µ}
+ \DeclareSIUnit \phts {photons}
+  \DeclareSIUnit \particles {particles}
+
+
+%To use greek typing
+\usepackage{setspace}
+\usepackage{csquotes}
+\usepackage{booktabs}
+
+\usepackage{tabularx}
+
+
+\usepackage{epigraph}
+\setlength\epigraphwidth{.6\textwidth}
+\setlength\epigraphrule{0pt}
+\renewcommand{\epigraphsize}{\footnotesize}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={black},
+    urlcolor={black}
+}
+
+% CONFIGURE UNITS MODE
+\sisetup{
+    quotient-mode = fraction,
+    fraction-function=\nicefrac
+}
+
+\makeatletter
+\providecommand\add@text{}
+\newcommand\tagaddtext[1]{%
+  \gdef\add@text{#1\gdef\add@text{}}}%
+\renewcommand\tagform@[1]{%
+  \maketag@@@{\llap{\add@text\quad}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\makeatother
+
+% CONFIGURE FIGURE POSITIONING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+% CONFIGURE GLOSSARY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acronyms
+\loadglsentries{acronyms}
+\makeglossaries
+\renewcommand*{\acronymname}{Acronyms}
+\renewcommand*{\glspostdescription}{} % remove trailing dot
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+
+\glssetcategoryattribute{acronym}{glossname}{firstuc}
+\glssetcategoryattribute{acronym}{glossdesc}{title}
+
+%Print the glosary
+\newcommand{\printacronyms}{\printglossary[style=super, type=acronym]}
+\renewcommand{\printsymbols}{\printglossary[type=symbols,style=altlongragged4col,nogroupskip]}
+% CONFIGURE GRAPHIC SOURCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paths for figures
+\graphicspath{{figures/pdf/}}
+%\graphicspath{{figures/jpeg_60_80/}}
+%Choose prefered graphic format (to speedup compilation if neeeded)
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\else
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Paper debug stuff
+\usepackage{xcolor}
+\definecolor{ref}{rgb}{0.2, 0.8, 0.2}
+\newcommand{\cita}[1]{\textcolor{ref}{[#1]}}
+\newcommand{\rev}[1]{\textcolor{red}{[#1]}}
+\newcommand{\sideref}[1]{\marginpar{\scriptsize\textcolor{ref}{[#1]}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%beginning of document
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\selectlanguage{english}
+%% UC3M cover
+
+\includepdf[pages=-]{chapters/PhD_Cover_front.pdf}
+\includepdf[pages=-]{chapters/template_UC3M_new_amarcos.pdf}
+
+
+%\author{Author name(s)}
+%\title{Book title}
+%\subtitle{-- Monograph --}
+%\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%
+
+\include{chapters/quotation}
+
+%\include{foreword}
+%\include{preface}
+%\include{acknowledgements}
+
+%%     CONTENTS
+\tableofcontents
+\listoffigures
+
+% This lines work best
+%\setglossarystyle{super}
+\printacronyms
+\printsymbols
+
+%%      CHAPTERS
+\mainmatter%%%%%%%%%%%%%%%%%%%%%
+\include{chapters/abstract}
+\include{chapters/motivation}
+
+\include{chapters/1_near_infrared_theory}
+%\include{chapters/2_optical_imaging_review}
+%\resetlinenumber
+%\include{chapters/3_assessment_nir_imaging}
+%\resetlinenumber
+%\include{chapters/4_monte_carlo_spim}
+%\include{chapters/5_opt_spim}
+%\include{chapters/6_OPT_opaque_samples}
+\include{chapters/conclusions}
+\include{chapters/future}
+
+
+\backmatter%%%%%%%%%%%%%%%%%%%%%
+
+%%     BIBLIOGRAPHY
+\include{chapters/references}
+\includepdf[pages=-]{chapters/PhD_Cover_back.pdf}
+
+\end{document}
